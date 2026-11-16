@@ -1,0 +1,120 @@
+-- made by ERROR00305 on solo | anime + stretch + combat | universal
+local P,T,U,R=game:GetService("Players"),game:GetService("TweenService"),game:GetService("UserInputService"),game:GetService("RunService")
+local pl=P.LocalPlayer local pg=pl:WaitForChild("PlayerGui")
+local o=pg:FindFirstChild("E305") if o then o:Destroy() end
+local ol=pg:FindFirstChild("E305Load") if ol then ol:Destroy() end
+local PN=Color3.fromRGB(248,245,247) local TX=Color3.fromRGB(70,55,65) local TXD=Color3.fromRGB(140,120,130) local BTN=Color3.fromRGB(235,225,230) local BRD=Color3.fromRGB(200,180,190) local RD=Color3.fromRGB(190,80,100) local ACC=Color3.fromRGB(200,130,155) local SAK=Color3.fromRGB(250,200,215)
+
+-- ЗАГРУЗКА 5 СЕК
+local lg=Instance.new("ScreenGui") lg.Name="E305Load" lg.IgnoreGuiInset=true lg.DisplayOrder=1000 lg.Parent=pg
+local lf=Instance.new("Frame") lf.Size=UDim2.new(1,0,1,0) lf.BackgroundColor3=PN lf.BorderSizePixel=0 lf.Parent=lg
+local lt=Instance.new("TextLabel") lt.Size=UDim2.new(1,0,0.2,0) lt.Position=UDim2.new(0,0,0.4,0) lt.BackgroundTransparency=1 lt.Text="made by ERROR00305" lt.TextColor3=ACC lt.Font=Enum.Font.GothamBlack lt.TextSize=32 lt.Parent=lg
+local jp=Instance.new("TextLabel") jp.Size=UDim2.new(1,0,0.1,0) jp.Position=UDim2.new(0,0,0.55,0) jp.BackgroundTransparency=1 jp.Text="桜 • アニメ • ローダー" jp.TextColor3=TXD jp.Font=Enum.Font.GothamMedium jp.TextSize=14 jp.Parent=lg
+task.spawn(function() task.wait(5) lg:Destroy() end)
+
+-- UI
+local g=Instance.new("ScreenGui") g.Name="E305" g.ResetOnSpawn=false g.IgnoreGuiInset=true g.DisplayOrder=999 g.Parent=pg
+local bg=Instance.new("Frame") bg.Size=UDim2.new(1,0,1,0) bg.BackgroundColor3=Color3.fromRGB(30,25,28) bg.BackgroundTransparency=0.5 bg.BorderSizePixel=0 bg.ZIndex=1 bg.Parent=g
+local pn=Instance.new("Frame") pn.Size=UDim2.new(0,460,0,440) pn.Position=UDim2.new(0.5,0,0.5,0) pn.AnchorPoint=Vector2.new(0.5,0.5) pn.BackgroundColor3=PN pn.BorderSizePixel=0 pn.ClipsDescendants=true pn.ZIndex=2 pn.Parent=g
+local pnc=Instance.new("UICorner") pnc.CornerRadius=UDim.new(0,14) pnc.Parent=pn
+local pns=Instance.new("UIStroke") pns.Color=BRD pns.Thickness=1.5 pns.Parent=pn
+local scale=Instance.new("UIScale") scale.Scale=1 scale.Parent=pn
+local hd=Instance.new("Frame") hd.Size=UDim2.new(1,-20,0,40) hd.Position=UDim2.new(0,10,0,8) hd.BackgroundTransparency=1 hd.ZIndex=4 hd.Parent=pn
+local title=Instance.new("TextLabel") title.Size=UDim2.new(1,0,0,26) title.BackgroundTransparency=1 title.Text="🌸 SAKURA" title.TextColor3=ACC title.Font=Enum.Font.GothamBlack title.TextSize=18 title.TextXAlignment=Enum.TextXAlignment.Left title.ZIndex=5 title.Parent=hd
+local sub=Instance.new("TextLabel") sub.Size=UDim2.new(1,0,0,14) sub.Position=UDim2.new(0,0,0,26) sub.BackgroundTransparency=1 sub.Text="ERROR00305 • universal" sub.TextColor3=TXD sub.Font=Enum.Font.GothamMedium sub.TextSize=10 sub.TextXAlignment=Enum.TextXAlignment.Left sub.ZIndex=5 sub.Parent=hd
+-- кнопки управления
+local del=Instance.new("TextButton") del.Size=UDim2.new(0,22,0,22) del.Position=UDim2.new(0,6,0,6) del.BackgroundColor3=RD del.BorderSizePixel=0 del.Text="⏻" del.TextColor3=PN del.Font=Enum.Font.GothamBold del.TextSize=12 del.AutoButtonColor=false del.ZIndex=10 del.Parent=pn
+local delc=Instance.new("UICorner") delc.CornerRadius=UDim.new(0,6) delc.Parent=del
+del.MouseButton1Click:Connect(function() g:Destroy() end)
+local cl=Instance.new("TextButton") cl.Size=UDim2.new(0,24,0,24) cl.Position=UDim2.new(1,-28,0,4) cl.BackgroundColor3=BTN cl.BorderSizePixel=0 cl.Text="×" cl.TextColor3=TXD cl.Font=Enum.Font.GothamBold cl.TextSize=16 cl.AutoButtonColor=false cl.ZIndex=10 cl.Parent=pn
+local clc=Instance.new("UICorner") clc.CornerRadius=UDim.new(0,6) clc.Parent=cl
+cl.MouseButton1Click:Connect(function() g.Enabled=false end)
+-- вкладки (добавлена STRETCH)
+local tbar=Instance.new("Frame") tbar.Size=UDim2.new(1,-20,0,28) tbar.Position=UDim2.new(0,10,0,50) tbar.BackgroundTransparency=1 tbar.ZIndex=4 tbar.Parent=pn
+local tabs={} local names={"PACKS","R15","COMBAT","STRETCH"} local tw=0.23
+for i,n in ipairs(names) do local tb=Instance.new("TextButton") tb.Size=UDim2.new(tw,0,0,26) tb.Position=UDim2.new((tw+0.02)*(i-1),0,0,1) tb.BackgroundColor3=(i==1) and ACC or BTN tb.BorderSizePixel=0 tb.Text=n tb.TextColor3=(i==1) and PN or TX tb.Font=Enum.Font.GothamBold tb.TextSize=8 tb.AutoButtonColor=false tb.ZIndex=5 tb.Parent=tbar local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=tb tabs[i]=tb end
+local ca=Instance.new("Frame") ca.Size=UDim2.new(1,-20,0,340) ca.Position=UDim2.new(0,10,0,84) ca.BackgroundTransparency=1 ca.ZIndex=4 ca.Parent=pn
+local sc=Instance.new("ScrollingFrame") sc.Size=UDim2.new(1,0,1,0) sc.BackgroundTransparency=1 sc.BorderSizePixel=0 sc.ScrollBarThickness=3 sc.ScrollBarImageColor3=BRD sc.CanvasSize=UDim2.new(0,0,0,0) sc.AutomaticCanvasSize=Enum.AutomaticSize.Y sc.ScrollingDirection=Enum.ScrollingDirection.Y sc.ZIndex=4 sc.Parent=ca
+local sl=Instance.new("UIGridLayout") sl.CellSize=UDim2.new(0,130,0,28) sl.CellPadding=UDim2.new(0,6,0,6) sl.SortOrder=Enum.SortOrder.LayoutOrder sl.Parent=sc
+-- COMBAT
+local combatFrame=Instance.new("Frame") combatFrame.Size=UDim2.new(1,0,1,0) combatFrame.BackgroundTransparency=1 combatFrame.Visible=false combatFrame.ZIndex=4 combatFrame.Parent=ca
+local cfl=Instance.new("UIListLayout") cfl.Padding=UDim.new(0,5) cfl.SortOrder=Enum.SortOrder.LayoutOrder cfl.Parent=combatFrame
+local function mkBtn(txt,order) local b=Instance.new("TextButton") b.Size=UDim2.new(1,0,0,30) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text=txt b.TextColor3=TX b.Font=Enum.Font.GothamBold b.TextSize=10 b.AutoButtonColor=false b.ZIndex=6 b.Parent=combatFrame b.LayoutOrder=order local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=b return b end
+local flyBtn=mkBtn("FLY: OFF",1)
+local flingBtn=mkBtn("FLING: OFF",2)
+local spdBtn=mkBtn("SPEED: OFF",3)
+local jmpBtn=mkBtn("JUMP: OFF",4)
+local spinBtn=mkBtn("SPIN: OFF",5)
+local function mkInput(label,order,def)
+local f=Instance.new("Frame") f.Size=UDim2.new(1,0,0,28) f.BackgroundTransparency=1 f.ZIndex=6 f.Parent=combatFrame f.LayoutOrder=order
+local l=Instance.new("TextLabel") l.Size=UDim2.new(0,100,0,20) l.Position=UDim2.new(0,0,0,4) l.BackgroundTransparency=1 l.Text=label l.TextColor3=TXD l.Font=Enum.Font.GothamMedium l.TextSize=9 l.TextXAlignment=Enum.TextXAlignment.Left l.ZIndex=6 l.Parent=f
+local i=Instance.new("TextBox") i.Size=UDim2.new(0,70,0,22) i.Position=UDim2.new(1,-70,0,3) i.BackgroundColor3=BTN i.BorderSizePixel=0 i.Text=def or "50" i.TextColor3=TX i.Font=Enum.Font.GothamMedium i.TextSize=10 i.ZIndex=6 i.Parent=f
+local ic=Instance.new("UICorner") ic.CornerRadius=UDim.new(0,5) ic.Parent=i return i end
+local flySpd=mkInput("fly speed",6,"50")
+local walkSpd=mkInput("walk speed",7,"16")
+-- STRETCH PANEL (новое)
+local stretchFrame=Instance.new("Frame") stretchFrame.Size=UDim2.new(1,0,1,0) stretchFrame.BackgroundTransparency=1 stretchFrame.Visible=false stretchFrame.ZIndex=4 stretchFrame.Parent=ca
+local stl=Instance.new("UIListLayout") stl.Padding=UDim.new(0,8) stl.SortOrder=Enum.SortOrder.LayoutOrder stl.Parent=stretchFrame
+local function mkStretchInput(label,order,def)
+local f=Instance.new("Frame") f.Size=UDim2.new(1,0,0,34) f.BackgroundTransparency=1 f.ZIndex=6 f.Parent=stretchFrame f.LayoutOrder=order
+local l=Instance.new("TextLabel") l.Size=UDim2.new(0,120,0,20) l.Position=UDim2.new(0,0,0,6) l.BackgroundTransparency=1 l.Text=label l.TextColor3=TX l.Font=Enum.Font.GothamBold l.TextSize=11 l.TextXAlignment=Enum.TextXAlignment.Left l.ZIndex=6 l.Parent=f
+local i=Instance.new("TextBox") i.Size=UDim2.new(0,80,0,24) i.Position=UDim2.new(1,-80,0,4) i.BackgroundColor3=BTN i.BorderSizePixel=0 i.Text=def or "1" i.TextColor3=TX i.Font=Enum.Font.GothamMedium i.TextSize=11 i.ZIndex=6 i.Parent=f
+local ic=Instance.new("UICorner") ic.CornerRadius=UDim.new(0,5) ic.Parent=i return i end
+local heightInput=mkStretchInput("Height (рост)",1,"1.0")
+local widthInput=mkStretchInput("Width (ширина)",2,"1.0")
+local applyStretch=Instance.new("TextButton") applyStretch.Size=UDim2.new(1,0,0,32) applyStretch.BackgroundColor3=ACC applyStretch.BorderSizePixel=0 applyStretch.Text="APPLY STRETCH" applyStretch.TextColor3=PN applyStretch.Font=Enum.Font.GothamBold applyStretch.TextSize=10 applyStretch.AutoButtonColor=false applyStretch.ZIndex=6 applyStretch.Parent=stretchFrame applyStretch.LayoutOrder=3
+local asc=Instance.new("UICorner") asc.CornerRadius=UDim.new(0,6) asc.Parent=applyStretch
+local resetStretch=Instance.new("TextButton") resetStretch.Size=UDim2.new(1,0,0,28) resetStretch.BackgroundColor3=BTN resetStretch.BorderSizePixel=0 resetStretch.Text="RESET TO NORMAL" resetStretch.TextColor3=RD resetStretch.Font=Enum.Font.GothamBold resetStretch.TextSize=10 resetStretch.AutoButtonColor=false resetStretch.ZIndex=6 resetStretch.Parent=stretchFrame resetStretch.LayoutOrder=4
+local rsc=Instance.new("UICorner") rsc.CornerRadius=UDim.new(0,6) rsc.Parent=resetStretch
+-- данные анимаций
+local A15={{"Clown","98862091866980"},{"Clown2","129632074077947"},{"Dancing Clown","119623069814310"},{"Laugh","101552034348992"},{"Floss","5917570207"},{"Wave","507770239"},{"Dance","507771019"},{"Dance2","507771955"},{"Cheer","507770677"}}
+local PACKS={
+{"Zombie","b",{idle="616088211",walk="616158929",run="616163921",jump="616161682",fall="616087089",swim="616092998",swimidle="616094091",climb="616086039"}},
+{"Mage","b",{idle="707742142",walk="707861613",run="707848224",jump="707865869",fall="10921148939",swim="10921150788",swimidle="10921151661",climb="10921143404"}},
+{"Knight","b",{idle="657595757",walk="657552124",run="657564596",jump="658409194",fall="657600338",swim="657560551",swimidle="657557095",climb="658360781"}},
+{"Ninja","b",{idle="656117400",walk="656121766",run="656118852",jump="656114359",fall="656115606",swim="656119721",swimidle="656120415",climb="656114760"}},
+{"Stylish","b",{idle="10921273958",walk="10921244891",run="10921249476",jump="10921242013",fall="10921241244",swim="10921243048",swimidle="10921244018",climb="10921271391"}},
+{"Toy","b",{idle="782842708",walk="782841498",run="782841498",jump="782843345",fall="782844335",swim="782845204",swimidle="782846106",climb="782846974"}}
+}
+local cache={}
+local function getT(an,id,pr) local k=tostring(id) if cache[k] then pcall(function() if cache[k].IsPlaying then cache[k]:Stop(0) end end) return cache[k] end local a=Instance.new("Animation") a.AnimationId="rbxassetid://"..id local ok,tr=pcall(function() return an:LoadAnimation(a) end) if not ok or not tr then return nil end tr.Priority=pr or Enum.AnimationPriority.Action cache[k]=tr return tr end
+local function isR15(ch) return ch and ch:FindFirstChild("UpperTorso")~=nil end
+local cur=nil
+local function parts() local ch=pl.Character if not ch then return end local hm=ch:FindFirstChildOfClass("Humanoid") if not hm then return end local an=hm:FindFirstChildOfClass("Animator") if not an then return end return ch,hm,an,ch:FindFirstChild("Animate") end
+local function play(id) if id=="0" then return end local ch,_,an=parts() if not an then return end if not isR15(ch) then return end if cur then pcall(function() cur:Stop() end) cur=nil end local tr=getT(an,id,Enum.AnimationPriority.Action) if tr then pcall(function() tr:Play(0.1) end) cur=tr end end
+local function bundle(d) local ch,_,_,a=parts() if not a then return end if not isR15(ch) then return end local function s(o,i) if o then pcall(function() o.AnimationId="rbxassetid://"..i end) end end if a.idle then if a.idle.Animation1 then s(a.idle.Animation1,d.idle) end if a.idle.Animation2 then s(a.idle.Animation2,d.idle) end end if a.walk and a.walk.WalkAnim then s(a.walk.WalkAnim,d.walk) end if a.run and a.run.RunAnim then s(a.run.RunAnim,d.run) end if a.jump and a.jump.JumpAnim then s(a.jump.JumpAnim,d.jump) end if a.fall and a.fall.FallAnim then s(a.fall.FallAnim,d.fall) end if a.swim and a.swim.Swim then s(a.swim.Swim,d.swim) end if a.swimidle and a.swimidle.SwimIdle then s(a.swimidle.SwimIdle,d.swimidle) end if a.climb and a.climb.ClimbAnim then s(a.climb.ClimbAnim,d.climb) end a.Disabled=true task.wait(0.05) a.Disabled=false end
+local function clear() for _,c in ipairs(sc:GetChildren()) do if c:IsA("TextButton") then c:Destroy() end end end
+local function fillPacks() clear() for _,v in ipairs(PACKS) do local b=Instance.new("TextButton") b.Size=UDim2.new(0,130,0,28) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text=v[1] b.TextColor3=TX b.Font=Enum.Font.GothamMedium b.TextSize=10 b.AutoButtonColor=false b.ZIndex=5 b.Parent=sc local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=b b.MouseButton1Click:Connect(function() bundle(v[3]) end) end end
+local function fillR15() clear() for _,v in ipairs(A15) do local b=Instance.new("TextButton") b.Size=UDim2.new(0,130,0,28) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text=v[1] b.TextColor3=TX b.Font=Enum.Font.GothamMedium b.TextSize=10 b.AutoButtonColor=false b.ZIndex=5 b.Parent=sc local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=b b.MouseButton1Click:Connect(function() play(v[2]) end) end end
+local function switch(i) for k,tb in ipairs(tabs) do if k==i then tb.BackgroundColor3=ACC tb.TextColor3=PN else tb.BackgroundColor3=BTN tb.TextColor3=TX end end sc.Visible=(i==1 or i==2) combatFrame.Visible=(i==3) stretchFrame.Visible=(i==4) if i==1 then fillPacks() elseif i==2 then fillR15() end end
+for i,tb in ipairs(tabs) do tb.MouseButton1Click:Connect(function() switch(i) end) end
+-- COMBAT ЛОГИКА
+local flying=false local bv=nil local bg2=nil
+local function stopFly() flying=false if bv then bv:Destroy() bv=nil end if bg2 then bg2:Destroy() bg2=nil end local ch=pl.Character if ch then local h=ch:FindFirstChildOfClass("Humanoid") if h then h.PlatformStand=false end end flyBtn.Text="FLY: OFF" flyBtn.TextColor3=RD end
+local function startFly() local ch=pl.Character if not ch then return end local hrp=ch:FindFirstChild("HumanoidRootPart") local h=ch:FindFirstChildOfClass("Humanoid") if not hrp or not h then return end flying=true h.PlatformStand=true bv=Instance.new("BodyVelocity") bv.MaxForce=Vector3.new(1e5,1e5,1e5) bv.Velocity=Vector3.zero bv.Parent=hrp bg2=Instance.new("BodyGyro") bg2.MaxTorque=Vector3.new(1e5,1e5,1e5) bg2.CFrame=hrp.CFrame bg2.Parent=hrp flyBtn.Text="FLY: ON" flyBtn.TextColor3=ACC end
+flyBtn.MouseButton1Click:Connect(function() if flying then stopFly() else startFly() end end)
+R.RenderStepped:Connect(function() if not flying or not bv then return end local ch=pl.Character if not ch then return end local hrp=ch:FindFirstChild("HumanoidRootPart") local cam=workspace.CurrentCamera if not hrp or not cam then return end local spd=tonumber(flySpd.Text) or 50 local dir=Vector3.zero if U:IsKeyDown(Enum.KeyCode.W) then dir=dir+cam.CFrame.LookVector end if U:IsKeyDown(Enum.KeyCode.S) then dir=dir-cam.CFrame.LookVector end if U:IsKeyDown(Enum.KeyCode.A) then dir=dir-cam.CFrame.RightVector end if U:IsKeyDown(Enum.KeyCode.D) then dir=dir+cam.CFrame.RightVector end if U:IsKeyDown(Enum.KeyCode.Space) then dir=dir+Vector3.new(0,1,0) end if U:IsKeyDown(Enum.KeyCode.LeftControl) then dir=dir-Vector3.new(0,1,0) end bv.Velocity=dir.Magnitude>0 and (dir.Unit*spd) or Vector3.zero bg2.CFrame=cam.CFrame end)
+local flingOn=false
+local function doFling() if not flingOn then return end local ch=pl.Character if not ch then return end local hrp=ch:FindFirstChild("HumanoidRootPart") if not hrp then return end for _,p in ipairs(P:GetPlayers()) do if p~=pl and p.Character then local thrp=p.Character:FindFirstChild("HumanoidRootPart") if thrp and (thrp.Position-hrp.Position).Magnitude<10 then local h=p.Character:FindFirstChildOfClass("Humanoid") if h then h:ChangeState(11) thrp.Velocity=Vector3.new(math.random(-200,200),math.random(100,300),math.random(-200,200)) end end end end end
+flingBtn.MouseButton1Click:Connect(function() flingOn=not flingOn flingBtn.Text=flingOn and "FLING: ON" or "FLING: OFF" flingBtn.TextColor3=flingOn and ACC or RD if flingOn then task.spawn(function() while flingOn do doFling() task.wait(0.5) end end) end end)
+local spdOn=false
+spdBtn.MouseButton1Click:Connect(function() spdOn=not spdOn local ch=pl.Character local h=ch and ch:FindFirstChildOfClass("Humanoid") if h then h.WalkSpeed=spdOn and (tonumber(walkSpd.Text) or 16) or 16 end spdBtn.Text=spdOn and "SPEED: ON" or "SPEED: OFF" spdBtn.TextColor3=spdOn and ACC or RD end)
+local jmpOn=false local jmpConn
+jmpBtn.MouseButton1Click:Connect(function() jmpOn=not jmpOn if jmpOn then jmpConn=U.JumpRequest:Connect(function() local ch=pl.Character local h=ch and ch:FindFirstChildOfClass("Humanoid") if h then h.Jump=true end end) else if jmpConn then jmpConn:Disconnect() jmpConn=nil end end jmpBtn.Text=jmpOn and "JUMP: ON" or "JUMP: OFF" jmpBtn.TextColor3=jmpOn and ACC or RD end)
+local spinOn=false
+spinBtn.MouseButton1Click:Connect(function() spinOn=not spinOn if spinOn then task.spawn(function() while spinOn do local ch=pl.Character local hrp=ch and ch:FindFirstChild("HumanoidRootPart") if hrp then hrp.CFrame=hrp.CFrame*CFrame.Angles(0,math.rad(15),0) end task.wait() end end) end spinBtn.Text=spinOn and "SPIN: ON" or "SPIN: OFF" spinBtn.TextColor3=spinOn and ACC or RD end)
+-- STRETCH ЛОГИКА (рост/ширина через HumanoidDescription)
+local function applyStretchFn(h,w) local ch=pl.Character if not ch then return end local hum=ch:FindFirstChildOfClass("Humanoid") if not hum then return end local desc=hum:GetAppliedDescription() if desc then desc.HeightScale=tonumber(h) or 1 desc.WidthScale=tonumber(w) or 1 hum:ApplyDescription(desc) end end
+applyStretch.MouseButton1Click:Connect(function() applyStretchFn(heightInput.Text,widthInput.Text) end)
+resetStretch.MouseButton1Click:Connect(function() heightInput.Text="1.0" widthInput.Text="1.0" applyStretchFn("1.0","1.0") end)
+-- drag
+local drag,ds,sp=false,nil,nil
+local da=Instance.new("Frame") da.Size=UDim2.new(1,0,0,40) da.BackgroundTransparency=1 da.ZIndex=3 da.Parent=pn
+da.InputBegan:Connect(function(i) if i.UserInputType==Enum.UserInputType.MouseButton1 or i.UserInputType==Enum.UserInputType.Touch then drag=true ds=i.Position sp=pn.Position end end)
+U.InputChanged:Connect(function(i) if drag and (i.UserInputType==Enum.UserInputType.MouseMovement or i.UserInputType==Enum.UserInputType.Touch) then local d=i.Position-ds pn.Position=UDim2.new(sp.X.Scale,sp.X.Offset+d.X,sp.Y.Scale,sp.Y.Offset+d.Y) end end)
+U.InputEnded:Connect(function(i) if i.UserInputType==Enum.UserInputType.MouseButton1 or i.UserInputType==Enum.UserInputType.Touch then drag=false end end)
+-- K toggle
+local kh=false
+U.InputBegan:Connect(function(i,gp) if gp then return end if i.KeyCode==Enum.KeyCode.K and not kh then kh=true g.Enabled=not g.Enabled end end)
+U.InputEnded:Connect(function(i) if i.KeyCode==Enum.KeyCode.K then kh=false end end)
+switch(1)script.lua.
