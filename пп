@@ -1,47 +1,405 @@
--- made by ERROR00305 on solo | anime girl + sliders + all panels | universal
+-- made by ERROR00305 on solo | anime loader + beautiful UI
 local P,T,U,R=game:GetService("Players"),game:GetService("TweenService"),game:GetService("UserInputService"),game:GetService("RunService")
-local pl=P.LocalPlayer local pg=pl:WaitForChild("PlayerGui")
-local o=pg:FindFirstChild("E305") if o then o:Destroy() end
-local ol=pg:FindFirstChild("E305Load") if ol then ol:Destroy() end
-local PN=Color3.fromRGB(248,245,247) local TX=Color3.fromRGB(70,55,65) local TXD=Color3.fromRGB(140,120,130) local BTN=Color3.fromRGB(235,225,230) local BRD=Color3.fromRGB(200,180,190) local RD=Color3.fromRGB(190,80,100) local ACC=Color3.fromRGB(200,130,155) local SAK=Color3.fromRGB(250,200,215)
+local pl=P.LocalPlayer
+local pg=pl:WaitForChild("PlayerGui")
+local old=pg:FindFirstChild("E305") if old then old:Destroy() end
+local oldLoad=pg:FindFirstChild("E305Load") if oldLoad then oldLoad:Destroy() end
+
+-- Палитра: аниме-сакура
+local PN=Color3.fromRGB(252,245,248)
+local TX=Color3.fromRGB(72,48,58)
+local TXD=Color3.fromRGB(148,118,128)
+local BTN=Color3.fromRGB(242,228,234)
+local BTNH=Color3.fromRGB(228,208,218)
+local BRD=Color3.fromRGB(210,180,195)
+local RD=Color3.fromRGB(180,90,110)
+local SK=Color3.fromRGB(255,182,203)
+local ACC=Color3.fromRGB(196,120,150)
+local DARK=Color3.fromRGB(28,20,26)
 
 -- ЗАГРУЗКА 5 СЕК
-local lg=Instance.new("ScreenGui") lg.Name="E305Load" lg.IgnoreGuiInset=true lg.DisplayOrder=1000 lg.Parent=pg
-local lf=Instance.new("Frame") lf.Size=UDim2.new(1,0,1,0) lf.BackgroundColor3=PN lf.BorderSizePixel=0 lf.Parent=lg
-local lt=Instance.new("TextLabel") lt.Size=UDim2.new(1,0,0.2,0) lt.Position=UDim2.new(0,0,0.4,0) lt.BackgroundTransparency=1 lt.Text="made by ERROR00305" lt.TextColor3=ACC lt.Font=Enum.Font.GothamBlack lt.TextSize=32 lt.Parent=lg
-local jp=Instance.new("TextLabel") jp.Size=UDim2.new(1,0,0.1,0) jp.Position=UDim2.new(0,0,0.55,0) jp.BackgroundTransparency=1 jp.Text="桜 • アニメ • ローダー" jp.TextColor3=TXD jp.Font=Enum.Font.GothamMedium jp.TextSize=14 jp.Parent=lg
-task.spawn(function() task.wait(5) lg:Destroy() end)
+local loadGui=Instance.new("ScreenGui")
+loadGui.Name="E305Load"
+loadGui.IgnoreGuiInset=true
+loadGui.DisplayOrder=1000
+loadGui.Parent=pg
 
--- UI
-local g=Instance.new("ScreenGui") g.Name="E305" g.ResetOnSpawn=false g.IgnoreGuiInset=true g.DisplayOrder=999 g.Parent=pg
-local bg=Instance.new("Frame") bg.Size=UDim2.new(1,0,1,0) bg.BackgroundColor3=Color3.fromRGB(30,25,28) bg.BackgroundTransparency=0.5 bg.BorderSizePixel=0 bg.ZIndex=1 bg.Parent=g
-local pn=Instance.new("Frame") pn.Size=UDim2.new(0,520,0,560) pn.Position=UDim2.new(0.5,0,0.5,0) pn.AnchorPoint=Vector2.new(0.5,0.5) pn.BackgroundColor3=PN pn.BorderSizePixel=0 pn.ClipsDescendants=true pn.ZIndex=2 pn.Parent=g
-local pnc=Instance.new("UICorner") pnc.CornerRadius=UDim.new(0,14) pnc.Parent=pn
-local pns=Instance.new("UIStroke") pns.Color=BRD pns.Thickness=1.5 pns.Parent=pn
-local pgd=Instance.new("UIGradient") pgd.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,PN),ColorSequenceKeypoint.new(1,Color3.fromRGB(240,230,238))}) pgd.Rotation=45 pgd.Parent=pn
-for i=1,12 do local pt=Instance.new("Frame") pt.Size=UDim2.new(0,math.random(15,35),0,math.random(15,35)) pt.Position=UDim2.new(math.random(5,95)/100,-20,math.random(5,95)/100,-20) pt.BackgroundColor3=SAK pt.BackgroundTransparency=0.6 pt.BorderSizePixel=0 pt.ZIndex=1 pt.Parent=pn local pc=Instance.new("UICorner") pc.CornerRadius=UDim.new(1,0) pc.Parent=pt end
--- АНИМЕ-ТЯНКА
-local ag=Instance.new("ImageLabel") ag.Size=UDim2.new(0,90,0,90) ag.Position=UDim2.new(1,-100,0,5) ag.BackgroundTransparency=1 ag.Image="rbxassetid://11696745268" ag.ZIndex=6 ag.Parent=pn
-local hd=Instance.new("Frame") hd.Size=UDim2.new(1,-110,0,50) hd.Position=UDim2.new(0,10,0,8) hd.BackgroundTransparency=1 hd.ZIndex=4 hd.Parent=pn
-local title=Instance.new("TextLabel") title.Size=UDim2.new(1,0,0,26) title.BackgroundTransparency=1 title.Text="🌸 SAKURA" title.TextColor3=ACC title.Font=Enum.Font.GothamBlack title.TextSize=20 title.TextXAlignment=Enum.TextXAlignment.Left title.ZIndex=5 title.Parent=hd
-local sub=Instance.new("TextLabel") sub.Size=UDim2.new(1,0,0,14) sub.Position=UDim2.new(0,0,0,28) sub.BackgroundTransparency=1 sub.Text="ERROR00305 • アニメ" sub.TextColor3=TXD sub.Font=Enum.Font.GothamMedium sub.TextSize=10 sub.TextXAlignment=Enum.TextXAlignment.Left sub.ZIndex=5 sub.Parent=hd
-local del=Instance.new("TextButton") del.Size=UDim2.new(0,22,0,22) del.Position=UDim2.new(0,6,0,6) del.BackgroundColor3=RD del.BorderSizePixel=0 del.Text="⏻" del.TextColor3=PN del.Font=Enum.Font.GothamBold del.TextSize=12 del.AutoButtonColor=false del.ZIndex=10 del.Parent=pn
-local delc=Instance.new("UICorner") delc.CornerRadius=UDim.new(0,6) delc.Parent=del
+local loadBg=Instance.new("Frame")
+loadBg.Size=UDim2.new(1,0,1,0)
+loadBg.BackgroundColor3=DARK
+loadBg.BorderSizePixel=0
+loadBg.Parent=loadGui
+
+-- Градиент на фоне загрузки
+local loadGrad=Instance.new("UIGradient")
+loadGrad.Color=ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(20,15,18)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40,25,35)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(20,15,18))
+})
+loadGrad.Rotation=90
+loadGrad.Parent=loadBg
+
+-- Лепестки сакуры на загрузке
+for i=1,20 do
+    local petal=Instance.new("Frame")
+    petal.Size=UDim2.new(0,math.random(8,18),0,math.random(8,18))
+    petal.Position=UDim2.new(math.random(0,100)/100,0,math.random(0,100)/100,0)
+    petal.BackgroundColor3=SK
+    petal.BackgroundTransparency=math.random(30,70)/100
+    petal.BorderSizePixel=0
+    petal.ZIndex=1
+    petal.Parent=loadBg
+    local pc=Instance.new("UICorner")
+    pc.CornerRadius=UDim.new(1,0)
+    pc.Parent=petal
+    -- Анимация падения
+    task.spawn(function()
+        while petal.Parent do
+            local startY=math.random(-20,0)/100
+            petal.Position=UDim2.new(math.random(0,100)/100,0,startY,0)
+            local fallTween=T:Create(petal,TweenInfo.new(math.random(3,6),Enum.EasingStyle.Linear),{Position=UDim2.new(math.random(0,100)/100,0,1.1,0)})
+            fallTween:Play()
+            fallTween.Completed:Wait()
+            task.wait(math.random(1,3))
+        end
+    end)
+end
+
+-- Центральный контейнер загрузки
+local loadCenter=Instance.new("Frame")
+loadCenter.Size=UDim2.new(0,500,0,300)
+loadCenter.Position=UDim2.new(0.5,0,0.5,0)
+loadCenter.AnchorPoint=Vector2.new(0.5,0.5)
+loadCenter.BackgroundTransparency=1
+loadCenter.ZIndex=5
+loadCenter.Parent=loadBg
+
+-- Японский текст сверху
+local jpTop=Instance.new("TextLabel")
+jpTop.Size=UDim2.new(1,0,0,30)
+jpTop.Position=UDim2.new(0,0,0,0)
+jpTop.BackgroundTransparency=1
+jpTop.Text="桜 • アニメ • ローダー"
+jpTop.TextColor3=Color3.fromRGB(255,200,220)
+jpTop.Font=Enum.Font.GothamMedium
+jpTop.TextSize=16
+jpTop.TextTransparency=1
+jpTop.ZIndex=6
+jpTop.Parent=loadCenter
+
+-- Главная надпись
+local mainText=Instance.new("TextLabel")
+mainText.Size=UDim2.new(1,0,0,60)
+mainText.Position=UDim2.new(0,0,0,50)
+mainText.BackgroundTransparency=1
+mainText.Text="made by ERROR00305"
+mainText.TextColor3=SK
+mainText.Font=Enum.Font.GothamBlack
+mainText.TextSize=42
+mainText.TextTransparency=1
+mainText.ZIndex=6
+mainText.Parent=loadCenter
+
+-- Подпись
+local subText=Instance.new("TextLabel")
+subText.Size=UDim2.new(1,0,0,24)
+subText.Position=UDim2.new(0,0,0,115)
+subText.BackgroundTransparency=1
+subText.Text="in solo • 桜の世界"
+subText.TextColor3=Color3.fromRGB(255,180,200)
+subText.Font=Enum.Font.GothamMedium
+subText.TextSize=14
+subText.TextTransparency=1
+subText.ZIndex=6
+subText.Parent=loadCenter
+
+-- Полоса загрузки
+local barBg=Instance.new("Frame")
+barBg.Size=UDim2.new(0,300,0,6)
+barBg.Position=UDim2.new(0.5,-150,0,170)
+barBg.BackgroundColor3=Color3.fromRGB(60,40,50)
+barBg.BorderSizePixel=0
+barBg.ZIndex=6
+barBg.Parent=loadCenter
+local barBgC=Instance.new("UICorner")
+barBgC.CornerRadius=UDim.new(1,0)
+barBgC.Parent=barBg
+
+local barFill=Instance.new("Frame")
+barFill.Size=UDim2.new(0,0,1,0)
+barFill.BackgroundColor3=SK
+barFill.BorderSizePixel=0
+barFill.ZIndex=7
+barFill.Parent=barBg
+local barFillC=Instance.new("UICorner")
+barFillC.CornerRadius=UDim.new(1,0)
+barFillC.Parent=barFill
+
+-- Процент
+local percentText=Instance.new("TextLabel")
+percentText.Size=UDim2.new(1,0,0,20)
+percentText.Position=UDim2.new(0,0,0,185)
+percentText.BackgroundTransparency=1
+percentText.Text="0%"
+percentText.TextColor3=Color3.fromRGB(255,200,220)
+percentText.Font=Enum.Font.GothamMedium
+percentText.TextSize=12
+percentText.TextTransparency=1
+percentText.ZIndex=6
+percentText.Parent=loadCenter
+
+-- Анимация появления загрузки
+task.spawn(function()
+    T:Create(jpTop,TweenInfo.new(0.5),{TextTransparency=0}):Play()
+    task.wait(0.2)
+    T:Create(mainText,TweenInfo.new(0.5),{TextTransparency=0}):Play()
+    task.wait(0.2)
+    T:Create(subText,TweenInfo.new(0.5),{TextTransparency=0}):Play()
+    task.wait(0.1)
+    T:Create(percentText,TweenInfo.new(0.5),{TextTransparency=0}):Play()
+end)
+
+-- Прогресс загрузки (5 секунд)
+task.spawn(function()
+    local total=5
+    local start=tick()
+    local pr=0
+    while pr<1 do
+        local el=tick()-start
+        pr=math.min(el/total,1)
+        local e=1-(1-pr)^2
+        barFill.Size=UDim2.new(e,0,1,0)
+        percentText.Text=math.floor(e*100).."%"
+        R.Heartbeat:Wait()
+    end
+    barFill.Size=UDim2.new(1,0,1,0)
+    percentText.Text="100%"
+    task.wait(0.3)
+    -- Плавное исчезновение
+    T:Create(loadBg,TweenInfo.new(0.5),{BackgroundTransparency=1}):Play()
+    T:Create(jpTop,TweenInfo.new(0.4),{TextTransparency=1}):Play()
+    T:Create(mainText,TweenInfo.new(0.4),{TextTransparency=1}):Play()
+    T:Create(subText,TweenInfo.new(0.4),{TextTransparency=1}):Play()
+    T:Create(percentText,TweenInfo.new(0.4),{TextTransparency=1}):Play()
+    T:Create(barBg,TweenInfo.new(0.4),{BackgroundTransparency=1}):Play()
+    T:Create(barFill,TweenInfo.new(0.4),{BackgroundTransparency=1}):Play()
+    task.wait(0.5)
+    loadGui:Destroy()
+end)
+
+-- ОСНОВНОЙ ИНТЕРФЕЙС
+local g=Instance.new("ScreenGui")
+g.Name="E305"
+g.ResetOnSpawn=false
+g.IgnoreGuiInset=true
+g.DisplayOrder=999
+g.Parent=pg
+
+-- Фон
+local bg=Instance.new("Frame")
+bg.Size=UDim2.new(1,0,1,0)
+bg.BackgroundColor3=DARK
+bg.BackgroundTransparency=0.4
+bg.BorderSizePixel=0
+bg.ZIndex=1
+bg.Parent=g
+
+-- Главная панель
+local pn=Instance.new("Frame")
+pn.Size=UDim2.new(0,520,0,560)
+pn.Position=UDim2.new(0.5,0,0.5,0)
+pn.AnchorPoint=Vector2.new(0.5,0.5)
+pn.BackgroundColor3=PN
+pn.BorderSizePixel=0
+pn.ClipsDescendants=true
+pn.ZIndex=2
+pn.Parent=g
+local pnc=Instance.new("UICorner")
+pnc.CornerRadius=UDim.new(0,16)
+pnc.Parent=pn
+local pns=Instance.new("UIStroke")
+pns.Color=BRD
+pns.Thickness=1.5
+pns.Parent=pn
+
+-- Градиент на панели
+local pgd=Instance.new("UIGradient")
+pgd.Color=ColorSequence.new({
+    ColorSequenceKeypoint.new(0, PN),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(240,230,238))
+})
+pgd.Rotation=45
+pgd.Parent=pn
+
+-- Лепестки сакуры на фоне панели
+for i=1,12 do
+    local pt=Instance.new("Frame")
+    pt.Size=UDim2.new(0,math.random(15,35),0,math.random(15,35))
+    pt.Position=UDim2.new(math.random(5,95)/100,-20,math.random(5,95)/100,-20)
+    pt.BackgroundColor3=SK
+    pt.BackgroundTransparency=0.7
+    pt.BorderSizePixel=0
+    pt.ZIndex=1
+    pt.Parent=pn
+    local pc=Instance.new("UICorner")
+    pc.CornerRadius=UDim.new(1,0)
+    pc.Parent=pt
+end
+
+-- Шапка
+local hd=Instance.new("Frame")
+hd.Size=UDim2.new(1,-20,0,55)
+hd.Position=UDim2.new(0,10,0,8)
+hd.BackgroundTransparency=1
+hd.ZIndex=4
+hd.Parent=pn
+
+local title=Instance.new("TextLabel")
+title.Size=UDim2.new(1,-80,0,28)
+title.BackgroundTransparency=1
+title.Text="🌸 SAKURA"
+title.TextColor3=ACC
+title.Font=Enum.Font.GothamBlack
+title.TextSize=22
+title.TextXAlignment=Enum.TextXAlignment.Left
+title.ZIndex=5
+title.Parent=hd
+
+local sub=Instance.new("TextLabel")
+sub.Size=UDim2.new(1,-80,0,16)
+sub.Position=UDim2.new(0,0,0,30)
+sub.BackgroundTransparency=1
+sub.Text="ERROR00305 • アニメ • universal"
+sub.TextColor3=TXD
+sub.Font=Enum.Font.GothamMedium
+sub.TextSize=11
+sub.TextXAlignment=Enum.TextXAlignment.Left
+sub.ZIndex=5
+sub.Parent=hd
+
+-- Кнопка удаления (слева)
+local del=Instance.new("TextButton")
+del.Size=UDim2.new(0,24,0,24)
+del.Position=UDim2.new(0,4,0,4)
+del.BackgroundColor3=RD
+del.BorderSizePixel=0
+del.Text="⏻"
+del.TextColor3=PN
+del.Font=Enum.Font.GothamBold
+del.TextSize=12
+del.AutoButtonColor=false
+del.ZIndex=10
+del.Parent=hd
+local delc=Instance.new("UICorner")
+delc.CornerRadius=UDim.new(0,6)
+delc.Parent=del
 del.MouseButton1Click:Connect(function() g:Destroy() end)
-local cl=Instance.new("TextButton") cl.Size=UDim2.new(0,24,0,24) cl.Position=UDim2.new(1,-28,0,4) cl.BackgroundColor3=BTN cl.BorderSizePixel=0 cl.Text="×" cl.TextColor3=TXD cl.Font=Enum.Font.GothamBold cl.TextSize=16 cl.AutoButtonColor=false cl.ZIndex=10 cl.Parent=pn
-local clc=Instance.new("UICorner") clc.CornerRadius=UDim.new(0,6) clc.Parent=cl
+
+-- Кнопка скрытия (справа)
+local cl=Instance.new("TextButton")
+cl.Size=UDim2.new(0,26,0,26)
+cl.Position=UDim2.new(1,-30,0,4)
+cl.BackgroundColor3=BTN
+cl.BorderSizePixel=0
+cl.Text="×"
+cl.TextColor3=TXD
+cl.Font=Enum.Font.GothamBold
+cl.TextSize=16
+cl.AutoButtonColor=false
+cl.ZIndex=10
+cl.Parent=hd
+local clc=Instance.new("UICorner")
+clc.CornerRadius=UDim.new(0,6)
+clc.Parent=cl
 cl.MouseButton1Click:Connect(function() g.Enabled=false end)
--- ВКЛАДКИ
-local tbar=Instance.new("Frame") tbar.Size=UDim2.new(1,-20,0,28) tbar.Position=UDim2.new(0,10,0,60) tbar.BackgroundTransparency=1 tbar.ZIndex=4 tbar.Parent=pn
-local tabs={} local names={"MAIN","ESP","ANIM","PACKS","STRETCH"} local tw=0.19
-for i,n in ipairs(names) do local tb=Instance.new("TextButton") tb.Size=UDim2.new(tw,0,0,26) tb.Position=UDim2.new((tw+0.01)*(i-1),0,0,1) tb.BackgroundColor3=(i==1) and ACC or BTN tb.BorderSizePixel=0 tb.Text=n tb.TextColor3=(i==1) and PN or TX tb.Font=Enum.Font.GothamBold tb.TextSize=7 tb.AutoButtonColor=false tb.ZIndex=5 tb.Parent=tbar local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=tb tabs[i]=tb end
-local ca=Instance.new("Frame") ca.Size=UDim2.new(1,-20,0,470) ca.Position=UDim2.new(0,10,0,94) ca.BackgroundTransparency=1 ca.ZIndex=4 ca.Parent=pn
-local sc=Instance.new("ScrollingFrame") sc.Size=UDim2.new(1,0,1,0) sc.BackgroundTransparency=1 sc.BorderSizePixel=0 sc.ScrollBarThickness=3 sc.ScrollBarImageColor3=BRD sc.CanvasSize=UDim2.new(0,0,0,0) sc.AutomaticCanvasSize=Enum.AutomaticSize.Y sc.ScrollingDirection=Enum.ScrollingDirection.Y sc.ZIndex=4 sc.Parent=ca
-local sl=Instance.new("UIGridLayout") sl.CellSize=UDim2.new(0,155,0,28) sl.CellPadding=UDim2.new(0,5,0,5) sl.SortOrder=Enum.SortOrder.LayoutOrder sl.Parent=sc
+
+-- Вкладки
+local tbar=Instance.new("Frame")
+tbar.Size=UDim2.new(1,-20,0,30)
+tbar.Position=UDim2.new(0,10,0,68)
+tbar.BackgroundTransparency=1
+tbar.ZIndex=4
+tbar.Parent=pn
+
+local tabs={}
+local names={"MAIN","ESP","ANIM","PACKS","STRETCH"}
+local tw=0.19
+for i,n in ipairs(names) do
+    local tb=Instance.new("TextButton")
+    tb.Size=UDim2.new(tw,0,0,28)
+    tb.Position=UDim2.new((tw+0.01)*(i-1),0,0,1)
+    tb.BackgroundColor3=(i==1) and ACC or BTN
+    tb.BorderSizePixel=0
+    tb.Text=n
+    tb.TextColor3=(i==1) and PN or TX
+    tb.Font=Enum.Font.GothamBold
+    tb.TextSize=8
+    tb.AutoButtonColor=false
+    tb.ZIndex=5
+    tb.Parent=tbar
+    local c=Instance.new("UICorner")
+    c.CornerRadius=UDim.new(0,6)
+    c.Parent=tb
+    tabs[i]=tb
+end
+
+-- Контент
+local ca=Instance.new("Frame")
+ca.Size=UDim2.new(1,-20,0,450)
+ca.Position=UDim2.new(0,10,0,104)
+ca.BackgroundTransparency=1
+ca.ZIndex=4
+ca.Parent=pn
+
+local sc=Instance.new("ScrollingFrame")
+sc.Size=UDim2.new(1,0,1,0)
+sc.BackgroundTransparency=1
+sc.BorderSizePixel=0
+sc.ScrollBarThickness=4
+sc.ScrollBarImageColor3=BRD
+sc.CanvasSize=UDim2.new(0,0,0,0)
+sc.AutomaticCanvasSize=Enum.AutomaticSize.Y
+sc.ScrollingDirection=Enum.ScrollingDirection.Y
+sc.ZIndex=4
+sc.Parent=ca
+local sl=Instance.new("UIGridLayout")
+sl.CellSize=UDim2.new(0,155,0,28)
+sl.CellPadding=UDim2.new(0,5,0,5)
+sl.SortOrder=Enum.SortOrder.LayoutOrder
+sl.Parent=sc
+
 -- MAIN
-local mainFrame=Instance.new("Frame") mainFrame.Size=UDim2.new(1,0,1,0) mainFrame.BackgroundTransparency=1 mainFrame.Visible=true mainFrame.ZIndex=4 mainFrame.Parent=ca
-local mfl=Instance.new("UIListLayout") mfl.Padding=UDim.new(0,5) mfl.SortOrder=Enum.SortOrder.LayoutOrder mfl.Parent=mainFrame
-local function mkBtn(parent,txt,order) local b=Instance.new("TextButton") b.Size=UDim2.new(1,0,0,28) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text=txt b.TextColor3=TX b.Font=Enum.Font.GothamBold b.TextSize=9 b.AutoButtonColor=false b.ZIndex=6 b.Parent=parent b.LayoutOrder=order local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=b return b end
+local mainFrame=Instance.new("Frame")
+mainFrame.Size=UDim2.new(1,0,1,0)
+mainFrame.BackgroundTransparency=1
+mainFrame.Visible=true
+mainFrame.ZIndex=4
+mainFrame.Parent=ca
+local mfl=Instance.new("UIListLayout")
+mfl.Padding=UDim.new(0,5)
+mfl.SortOrder=Enum.SortOrder.LayoutOrder
+mfl.Parent=mainFrame
+
+local function mkBtn(parent,txt,order)
+    local b=Instance.new("TextButton")
+    b.Size=UDim2.new(1,0,0,30)
+    b.BackgroundColor3=BTN
+    b.BorderSizePixel=0
+    b.Text=txt
+    b.TextColor3=TX
+    b.Font=Enum.Font.GothamBold
+    b.TextSize=9
+    b.AutoButtonColor=false
+    b.ZIndex=6
+    b.Parent=parent
+    b.LayoutOrder=order
+    local c=Instance.new("UICorner")
+    c.CornerRadius=UDim.new(0,6)
+    c.Parent=b
+    return b
+end
+
 local flyBtn=mkBtn(mainFrame,"FLY: OFF",1)
 local noclipBtn=mkBtn(mainFrame,"NOCLIP: OFF",2)
 local infJumpBtn=mkBtn(mainFrame,"INF JUMP: OFF",3)
@@ -49,86 +407,406 @@ local spdBtn=mkBtn(mainFrame,"SPEED: OFF",4)
 local jmpBtn=mkBtn(mainFrame,"JUMP: OFF",5)
 local spinBtn=mkBtn(mainFrame,"SPIN: OFF",6)
 local flingBtn=mkBtn(mainFrame,"FLING: OFF",7)
-local function mkInput(parent,label,order,def) local f=Instance.new("Frame") f.Size=UDim2.new(1,0,0,26) f.BackgroundTransparency=1 f.ZIndex=6 f.Parent=parent f.LayoutOrder=order local l=Instance.new("TextLabel") l.Size=UDim2.new(0,100,0,18) l.Position=UDim2.new(0,0,0,4) l.BackgroundTransparency=1 l.Text=label l.TextColor3=TXD l.Font=Enum.Font.GothamMedium l.TextSize=9 l.TextXAlignment=Enum.TextXAlignment.Left l.ZIndex=6 l.Parent=f local i=Instance.new("TextBox") i.Size=UDim2.new(0,70,0,20) i.Position=UDim2.new(1,-70,0,3) i.BackgroundColor3=BTN i.BorderSizePixel=0 i.Text=def or "50" i.TextColor3=TX i.Font=Enum.Font.GothamMedium i.TextSize=9 i.ZIndex=6 i.Parent=f local ic=Instance.new("UICorner") ic.CornerRadius=UDim.new(0,5) ic.Parent=i return i end
-local flySpd=mkInput(mainFrame,"fly speed",8,"50")
-local walkSpd=mkInput(mainFrame,"walk speed",9,"16")
-local flyAnimIn=mkInput(mainFrame,"fly anim id",10,"")
-local fullOff=mkBtn(mainFrame,"FULL OFF (RESET ALL)",11)
-fullOff.BackgroundColor3=Color3.fromRGB(230,180,190)
+
 -- ESP
-local espFrame=Instance.new("Frame") espFrame.Size=UDim2.new(1,0,1,0) espFrame.BackgroundTransparency=1 espFrame.Visible=false espFrame.ZIndex=4 espFrame.Parent=ca
-local efl=Instance.new("UIListLayout") efl.Padding=UDim.new(0,5) efl.SortOrder=Enum.SortOrder.LayoutOrder efl.Parent=espFrame
+local espFrame=Instance.new("Frame")
+espFrame.Size=UDim2.new(1,0,1,0)
+espFrame.BackgroundTransparency=1
+espFrame.Visible=false
+espFrame.ZIndex=4
+espFrame.Parent=ca
+local efl=Instance.new("UIListLayout")
+efl.Padding=UDim.new(0,5)
+efl.SortOrder=Enum.SortOrder.LayoutOrder
+efl.Parent=espFrame
 local espOn=mkBtn(espFrame,"ESP: OFF",1)
 local killerOn=mkBtn(espFrame,"KILLER: OFF",2)
+
 -- ANIM
-local animFrame=Instance.new("Frame") animFrame.Size=UDim2.new(1,0,1,0) animFrame.BackgroundTransparency=1 animFrame.Visible=false animFrame.ZIndex=4 animFrame.Parent=ca
-local afl=Instance.new("UIListLayout") afl.Padding=UDim.new(0,5) afl.SortOrder=Enum.SortOrder.LayoutOrder afl.Parent=animFrame
+local animFrame=Instance.new("Frame")
+animFrame.Size=UDim2.new(1,0,1,0)
+animFrame.BackgroundTransparency=1
+animFrame.Visible=false
+animFrame.ZIndex=4
+animFrame.Parent=ca
+local afl=Instance.new("UIListLayout")
+afl.Padding=UDim.new(0,5)
+afl.SortOrder=Enum.SortOrder.LayoutOrder
+afl.Parent=animFrame
+
 -- PACKS
-local packFrame=Instance.new("Frame") packFrame.Size=UDim2.new(1,0,1,0) packFrame.BackgroundTransparency=1 packFrame.Visible=false packFrame.ZIndex=4 packFrame.Parent=ca
-local pfl=Instance.new("UIListLayout") pfl.Padding=UDim.new(0,5) pfl.SortOrder=Enum.SortOrder.LayoutOrder pfl.Parent=packFrame
+local packFrame=Instance.new("Frame")
+packFrame.Size=UDim2.new(1,0,1,0)
+packFrame.BackgroundTransparency=1
+packFrame.Visible=false
+packFrame.ZIndex=4
+packFrame.Parent=ca
+local pfl=Instance.new("UIListLayout")
+pfl.Padding=UDim.new(0,5)
+pfl.SortOrder=Enum.SortOrder.LayoutOrder
+pfl.Parent=packFrame
+
 -- STRETCH (СЛАЙДЕРЫ)
-local stretchFrame=Instance.new("Frame") stretchFrame.Size=UDim2.new(1,0,1,0) stretchFrame.BackgroundTransparency=1 stretchFrame.Visible=false stretchFrame.ZIndex=4 stretchFrame.Parent=ca
-local stl=Instance.new("UIListLayout") stl.Padding=UDim.new(0,10) stl.SortOrder=Enum.SortOrder.LayoutOrder stl.Parent=stretchFrame
+local stretchFrame=Instance.new("Frame")
+stretchFrame.Size=UDim2.new(1,0,1,0)
+stretchFrame.BackgroundTransparency=1
+stretchFrame.Visible=false
+stretchFrame.ZIndex=4
+stretchFrame.Parent=ca
+local stl=Instance.new("UIListLayout")
+stl.Padding=UDim.new(0,10)
+stl.SortOrder=Enum.SortOrder.LayoutOrder
+stl.Parent=stretchFrame
+
 local function createSlider(parent,label,minVal,maxVal,defaultVal,order)
-local f=Instance.new("Frame") f.Size=UDim2.new(1,0,0,45) f.BackgroundTransparency=1 f.ZIndex=6 f.Parent=parent f.LayoutOrder=order
-local lbl=Instance.new("TextLabel") lbl.Size=UDim2.new(0,80,0,16) lbl.Position=UDim2.new(0,0,0,0) lbl.BackgroundTransparency=1 lbl.Text=label lbl.TextColor3=TX lbl.Font=Enum.Font.GothamBold lbl.TextSize=11 lbl.TextXAlignment=Enum.TextXAlignment.Left lbl.ZIndex=6 lbl.Parent=f
-local vd=Instance.new("TextLabel") vd.Size=UDim2.new(0,40,0,16) vd.Position=UDim2.new(1,-40,0,0) vd.BackgroundTransparency=1 vd.Text=tostring(defaultVal) vd.TextColor3=ACC vd.Font=Enum.Font.GothamBold vd.TextSize=11 vd.TextXAlignment=Enum.TextXAlignment.Right vd.ZIndex=6 vd.Parent=f
-local track=Instance.new("Frame") track.Size=UDim2.new(1,0,0,6) track.Position=UDim2.new(0,0,0,22) track.BackgroundColor3=BTN track.BorderSizePixel=0 track.ZIndex=6 track.Parent=f
-local tc=Instance.new("UICorner") tc.CornerRadius=UDim.new(1,0) tc.Parent=track
-local fill=Instance.new("Frame") fill.Size=UDim2.new((defaultVal-minVal)/(maxVal-minVal),0,1,0) fill.BackgroundColor3=ACC fill.BorderSizePixel=0 fill.ZIndex=7 fill.Parent=track
-local fc=Instance.new("UICorner") fc.CornerRadius=UDim.new(1,0) fc.Parent=fill
-local thumb=Instance.new("Frame") thumb.Size=UDim2.new(0,14,0,14) thumb.Position=UDim2.new((defaultVal-minVal)/(maxVal-minVal),-7,0.5,-7) thumb.BackgroundColor3=PN thumb.BorderSizePixel=0 thumb.ZIndex=8 thumb.Parent=track
-local thc=Instance.new("UICorner") thc.CornerRadius=UDim.new(1,0) thc.Parent=thumb
-local ths=Instance.new("UIStroke") ths.Color=ACC ths.Thickness=2 ths.Parent=thumb
-local dragging=false
-local function applyStretch(val) local ch=pl.Character if not ch then return end local hum=ch:FindFirstChildOfClass("Humanoid") if not hum then return end local desc=hum:GetAppliedDescription() if desc then if label:find("Height") then desc.HeightScale=val end if label:find("Width") then desc.WidthScale=val end hum:ApplyDescription(desc) end end
-local function updateSlider(x) local relX=x-track.AbsolutePosition.X local clamped=math.clamp(relX,0,track.AbsoluteSize.X) local alpha=clamped/track.AbsoluteSize.X local val=minVal+(maxVal-minVal)*alpha val=math.floor(val*10+0.5)/10 fill.Size=UDim2.new(alpha,0,1,0) thumb.Position=UDim2.new(alpha,-7,0.5,-7) vd.Text=tostring(val) applyStretch(val) end
-track.InputBegan:Connect(function(input) if input.UserInputType==Enum.UserInputType.MouseButton1 or input.UserInputType==Enum.UserInputType.Touch then dragging=true updateSlider(input.Position.X) end end)
-U.InputChanged:Connect(function(input) if dragging and (input.UserInputType==Enum.UserInputType.MouseMovement or input.UserInputType==Enum.UserInputType.Touch) then updateSlider(input.Position.X) end end)
-U.InputEnded:Connect(function(input) if input.UserInputType==Enum.UserInputType.MouseButton1 or input.UserInputType==Enum.UserInputType.Touch then dragging=false end end)
-return f end
+    local f=Instance.new("Frame")
+    f.Size=UDim2.new(1,0,0,45)
+    f.BackgroundTransparency=1
+    f.ZIndex=6
+    f.Parent=parent
+    f.LayoutOrder=order
+    local lbl=Instance.new("TextLabel")
+    lbl.Size=UDim2.new(0,80,0,16)
+    lbl.Position=UDim2.new(0,0,0,0)
+    lbl.BackgroundTransparency=1
+    lbl.Text=label
+    lbl.TextColor3=TX
+    lbl.Font=Enum.Font.GothamBold
+    lbl.TextSize=11
+    lbl.TextXAlignment=Enum.TextXAlignment.Left
+    lbl.ZIndex=6
+    lbl.Parent=f
+    local vd=Instance.new("TextLabel")
+    vd.Size=UDim2.new(0,40,0,16)
+    vd.Position=UDim2.new(1,-40,0,0)
+    vd.BackgroundTransparency=1
+    vd.Text=tostring(defaultVal)
+    vd.TextColor3=ACC
+    vd.Font=Enum.Font.GothamBold
+    vd.TextSize=11
+    vd.TextXAlignment=Enum.TextXAlignment.Right
+    vd.ZIndex=6
+    vd.Parent=f
+    local track=Instance.new("Frame")
+    track.Size=UDim2.new(1,0,0,6)
+    track.Position=UDim2.new(0,0,0,22)
+    track.BackgroundColor3=BTN
+    track.BorderSizePixel=0
+    track.ZIndex=6
+    track.Parent=f
+    local tc=Instance.new("UICorner")
+    tc.CornerRadius=UDim.new(1,0)
+    tc.Parent=track
+    local fill=Instance.new("Frame")
+    fill.Size=UDim2.new((defaultVal-minVal)/(maxVal-minVal),0,1,0)
+    fill.BackgroundColor3=ACC
+    fill.BorderSizePixel=0
+    fill.ZIndex=7
+    fill.Parent=track
+    local fc=Instance.new("UICorner")
+    fc.CornerRadius=UDim.new(1,0)
+    fc.Parent=fill
+    local thumb=Instance.new("Frame")
+    thumb.Size=UDim2.new(0,14,0,14)
+    thumb.Position=UDim2.new((defaultVal-minVal)/(maxVal-minVal),-7,0.5,-7)
+    thumb.BackgroundColor3=PN
+    thumb.BorderSizePixel=0
+    thumb.ZIndex=8
+    thumb.Parent=track
+    local thc=Instance.new("UICorner")
+    thc.CornerRadius=UDim.new(1,0)
+    thc.Parent=thumb
+    local ths=Instance.new("UIStroke")
+    ths.Color=ACC
+    ths.Thickness=2
+    ths.Parent=thumb
+    local dragging=false
+    local function applyStretch(val)
+        local ch=pl.Character
+        if not ch then return end
+        local hum=ch:FindFirstChildOfClass("Humanoid")
+        if not hum then return end
+        local desc=hum:GetAppliedDescription()
+        if desc then
+            if label:find("Height") then desc.HeightScale=val end
+            if label:find("Width") then desc.WidthScale=val end
+            hum:ApplyDescription(desc)
+        end
+    end
+    local function updateSlider(x)
+        local relX=x-track.AbsolutePosition.X
+        local clamped=math.clamp(relX,0,track.AbsoluteSize.X)
+        local alpha=clamped/track.AbsoluteSize.X
+        local val=minVal+(maxVal-minVal)*alpha
+        val=math.floor(val*10+0.5)/10
+        fill.Size=UDim2.new(alpha,0,1,0)
+        thumb.Position=UDim2.new(alpha,-7,0.5,-7)
+        vd.Text=tostring(val)
+        applyStretch(val)
+    end
+    track.InputBegan:Connect(function(input)
+        if input.UserInputType==Enum.UserInputType.MouseButton1 or input.UserInputType==Enum.UserInputType.Touch then
+            dragging=true
+            updateSlider(input.Position.X)
+        end
+    end)
+    U.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType==Enum.UserInputType.MouseMovement or input.UserInputType==Enum.UserInputType.Touch) then
+            updateSlider(input.Position.X)
+        end
+    end)
+    U.InputEnded:Connect(function(input)
+        if input.UserInputType==Enum.UserInputType.MouseButton1 or input.UserInputType==Enum.UserInputType.Touch then
+            dragging=false
+        end
+    end)
+    return f
+end
+
 createSlider(stretchFrame,"Height (рост)",0.5,2.0,1.0,1)
 createSlider(stretchFrame,"Width (ширина)",0.5,2.0,1.0,2)
-local resetStretch=mkBtn(stretchFrame,"RESET TO NORMAL",3) resetStretch.BackgroundColor3=BTN resetStretch.TextColor3=RD
-resetStretch.MouseButton1Click:Connect(function() local ch=pl.Character if not ch then return end local hum=ch:FindFirstChildOfClass("Humanoid") if not hum then return end local desc=hum:GetAppliedDescription() if desc then desc.HeightScale=1 desc.WidthScale=1 hum:ApplyDescription(desc) end end)
--- ДАННЫЕ АНИМАЦИЙ
-local A15={{"Wave","507770239"},{"Dance","507771019"},{"Dance2","507771955"},{"Dance3","507772104"},{"Laugh","507770818"},{"Cheer","507770677"},{"Point","507770453"},{"Salute","507770320"},{"Shrug","507769724"},{"Agree","507770041"},{"Disagree","507769964"},{"Stadium","507771333"},{"Clown","98862091866980"},{"Clown2","129632074077947"},{"Dancing Clown","119623069814310"},{"Floss","5917570207"},{"Trend1","105518724529424"},{"Laugh2","105457521156095"}}
-local PACKS={
-{"Zombie","b",{idle="10921344533",walk="10921355261",run="616163682",jump="10921351278",fall="10921350320",swim="10921352344",swimidle="10921353442",climb="10921343576"}},
-{"Mage","b",{idle="10921144709",walk="10921152678",run="10921148209",jump="10921149743",fall="10921148939",swim="10921150788",swimidle="10921151661",climb="10921143404"}},
-{"Stylish","b",{idle="10921273958",walk="10921244891",run="10921249476",jump="10921242013",fall="10921241244",swim="10921243048",swimidle="10921244018",climb="10921271391"}},
-{"Toy","b",{idle="10921306285",walk="10921312010",run="10921307241",jump="10921309051",fall="10921308330",swim="10921310121",swimidle="10921311044",climb="10921304519"}},
-{"Ninja","b",{idle="656117400",walk="656121766",run="656118852",jump="656114359",fall="656115606",swim="656119721",swimidle="656120415",climb="656114760"}},
-{"Knight","b",{idle="657595757",walk="657552124",run="657564596",jump="658409194",fall="657600338",swim="657560551",swimidle="657557095",climb="658360781"}}
-}
-local cache={}
-local function getT(an,id,pr) local k=tostring(id) if cache[k] then pcall(function() if cache[k].IsPlaying then cache[k]:Stop(0) end end) return cache[k] end local a=Instance.new("Animation") a.AnimationId="rbxassetid://"..id local ok,tr=pcall(function() return an:LoadAnimation(a) end) if not ok or not tr then return nil end tr.Priority=pr or Enum.AnimationPriority.Action cache[k]=tr return tr end
-local function isR15(ch) return ch and ch:FindFirstChild("UpperTorso")~=nil end
-local cur=nil local flyTrack=nil
-local function parts() local ch=pl.Character if not ch then return end local hm=ch:FindFirstChildOfClass("Humanoid") if not hm then return end local an=hm:FindFirstChildOfClass("Animator") if not an then return end return ch,hm,an,ch:FindFirstChild("Animate") end
-local function play(id) if id=="0" or id=="" then return end local ch,_,an=parts() if not an then return end if cur then pcall(function() cur:Stop() end) cur=nil end local tr=getT(an,id,Enum.AnimationPriority.Action) if tr then pcall(function() tr:Play(0.1) end) cur=tr end end
-local function bundle(d) local ch,_,_,a=parts() if not a then return end if not isR15(ch) then return end local function s(o,i) if o then pcall(function() o.AnimationId="rbxassetid://"..i end) end end if a.idle then if a.idle.Animation1 then s(a.idle.Animation1,d.idle) end if a.idle.Animation2 then s(a.idle.Animation2,d.idle) end end if a.walk and a.walk.WalkAnim then s(a.walk.WalkAnim,d.walk) end if a.run and a.run.RunAnim then s(a.run.RunAnim,d.run) end if a.jump and a.jump.JumpAnim then s(a.jump.JumpAnim,d.jump) end if a.fall and a.fall.FallAnim then s(a.fall.FallAnim,d.fall) end if a.swim and a.swim.Swim then s(a.swim.Swim,d.swim) end if a.swimidle and a.swimidle.SwimIdle then s(a.swimidle.SwimIdle,d.swimidle) end if a.climb and a.climb.ClimbAnim then s(a.climb.ClimbAnim,d.climb) end a.Disabled=true task.wait(0.05) a.Disabled=false end
-local function clearScroll() for _,c in ipairs(sc:GetChildren()) do if c:IsA("TextButton") then c:Destroy() end end end
-local function openOptions(btn,data,isB)
-local om=sc:FindFirstChild("optMenu") if om then om:Destroy() end
-local m=Instance.new("ScrollingFrame") m.Name="optMenu" m.Size=UDim2.new(0,130,0,160) m.Position=UDim2.new(0,math.clamp(btn.AbsolutePosition.X-sc.AbsolutePosition.X-70,0,sc.AbsoluteSize.X-140),0,btn.AbsolutePosition.Y-sc.AbsolutePosition.Y+30) m.BackgroundColor3=Color3.fromRGB(250,240,245) m.BorderSizePixel=0 m.ZIndex=20 m.Parent=sc m.ScrollBarThickness=2 m.AutomaticCanvasSize=Enum.AutomaticSize.Y
-local mc=Instance.new("UICorner") mc.CornerRadius=UDim.new(0,8) mc.Parent=m
-local ml=Instance.new("UIListLayout") ml.Padding=UDim.new(0,3) ml.Parent=m
-local function add(t,fn) local b=Instance.new("TextButton") b.Size=UDim2.new(1,-6,0,24) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text=t b.TextColor3=TX b.Font=Enum.Font.GothamMedium b.TextSize=9 b.AutoButtonColor=false b.ZIndex=21 b.Parent=m b.MouseButton1Click:Connect(function() fn() m:Destroy() end) end
-if isB then add("Весь пак",function() bundle(data) end) add("Только Jump",function() local ch,_,_,a=parts() if a and a.jump and a.jump.JumpAnim then a.jump.JumpAnim.AnimationId="rbxassetid://"..data.jump a.Disabled=true task.wait(0.05) a.Disabled=false end end) add("Только Run",function() local ch,_,_,a=parts() if a and a.run and a.run.RunAnim then a.run.RunAnim.AnimationId="rbxassetid://"..data.run a.Disabled=true task.wait(0.05) a.Disabled=false end end) add("Только Walk",function() local ch,_,_,a=parts() if a and a.walk and a.walk.WalkAnim then a.walk.WalkAnim.AnimationId="rbxassetid://"..data.walk a.Disabled=true task.wait(0.05) a.Disabled=false end end) add("Только Swim",function() local ch,_,_,a=parts() if a and a.swim and a.swim.Swim then a.swim.Swim.AnimationId="rbxassetid://"..data.swim a.Disabled=true task.wait(0.05) a.Disabled=false end end) else add("Проиграть",function() play(data) end) end end
-local function fillAnim() clearScroll() for _,v in ipairs(A15) do local b=Instance.new("TextButton") b.Size=UDim2.new(0,155,0,28) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text=v[1] b.TextColor3=TX b.Font=Enum.Font.GothamMedium b.TextSize=9 b.AutoButtonColor=false b.ZIndex=5 b.Parent=sc local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=b b.MouseButton1Click:Connect(function() play(v[2]) end) local d=Instance.new("TextButton") d.Size=UDim2.new(0,20,0,20) d.Position=UDim2.new(1,-22,0.5,-10) d.BackgroundColor3=Color3.fromRGB(230,215,222) d.BorderSizePixel=0 d.Text="⋮" d.TextColor3=TXD d.Font=Enum.Font.GothamBold d.TextSize=12 d.AutoButtonColor=false d.ZIndex=6 d.Parent=b local dc=Instance.new("UICorner") dc.CornerRadius=UDim.new(0,5) dc.Parent=d d.MouseButton1Click:Connect(function() openOptions(b,v[2],false) end) end end
-local function fillPacks() clearScroll() for _,v in ipairs(PACKS) do local b=Instance.new("TextButton") b.Size=UDim2.new(0,155,0,28) b.BackgroundColor3=BTN b.BorderSizePixel=0 b.Text="📦 "..v[1] b.TextColor3=TX b.Font=Enum.Font.GothamMedium b.TextSize=9 b.AutoButtonColor=false b.ZIndex=5 b.Parent=sc local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,6) c.Parent=b b.MouseButton1Click:Connect(function() bundle(v[3]) end) local d=Instance.new("TextButton") d.Size=UDim2.new(0,20,0,20) d.Position=UDim2.new(1,-22,0.5,-10) d.BackgroundColor3=Color3.fromRGB(230,215,222) d.BorderSizePixel=0 d.Text="⋮" d.TextColor3=TXD d.Font=Enum.Font.GothamBold d.TextSize=12 d.AutoButtonColor=false d.ZIndex=6 d.Parent=b local dc=Instance.new("UICorner") dc.CornerRadius=UDim.new(0,5) dc.Parent=d d.MouseButton1Click:Connect(function() openOptions(b,v[3],true) end) end end
-local function mkResetBtn(parent,order) local b=Instance.new("TextButton") b.Size=UDim2.new(1,0,0,32) b.BackgroundColor3=Color3.fromRGB(240,190,210) b.BorderSizePixel=0 b.Text="戻る (reset)" b.TextColor3=Color3.fromRGB(120,60,80) b.Font=Enum.Font.GothamBold b.TextSize=10 b.AutoButtonColor=false b.ZIndex=6 b.Parent=parent b.LayoutOrder=order local c=Instance.new("UICorner") c.CornerRadius=UDim.new(0,8) c.Parent=b return b end
-local resetAnim=mkResetBtn(animFrame,99)
-local resetPacks=mkResetBtn(packFrame,99)
-local function resetAllAnims() local ch,_,_,a=parts() if not a then return end local function s(o,i) if o then pcall(function() o.AnimationId="rbxassetid://"..i end) end end if a.idle then if a.idle.Animation1 then s(a.idle.Animation1,"507766666") end if a.idle.Animation2 then s(a.idle.Animation2,"507766951") end end if a.walk and a.walk.WalkAnim then s(a.walk.WalkAnim,"507777826") end if a.run and a.run.RunAnim then s(a.run.RunAnim,"507767714") end if a.jump and a.jump.JumpAnim then s(a.jump.JumpAnim,"507765000") end if a.fall and a.fall.FallAnim then s(a.fall.FallAnim,"507767968") end if a.swim and a.swim.Swim then s(a.swim.Swim,"507784897") end if a.swimidle and a.swimidle.SwimIdle then s(a.swimidle.SwimIdle,"507785072") end if a.climb and a.climb.ClimbAnim then s(a.climb.ClimbAnim,"507765644") end a.Disabled=true task.wait(0.05) a.Disabled=false end
-resetAnim.MouseButton1Click:Connect(resetAllAnims)
-resetPacks.MouseButton1Click:Connect(resetAllAnims)
-local function switch(i) for k,tb in ipairs(tabs) do if k==i then tb.BackgroundColor3=ACC tb.TextColor3=PN else tb.BackgroundColor3=BTN tb.TextColor3=TX end end sc.Visible=(i==3 or i==4) mainFrame.Visible=(i==1) espFrame.Visible=(i==2) animFrame.Visible=(i==3) packFrame.Visible=(i==4) stretchFrame.Visible=(i==5) if i==3 then fillAnim() end if i==4 then fillPacks() end end
-for i,tb in ipairs(tabs) do tb.MouseButton1Click:Connect(function() switch(i) end) end
--- ЛОГИКА
-local flying=false local bv=nil local bg2=nil
-local function stopFly() flying=false if bv then bv:Destroy() bv=nil end if bg2 then bg2:Destroy() bg2=nil end if flyTrack then pcall(function() flyTrack:Stop() end) flyTrack=nil end local ch=pl.Character if ch then local h=ch:FindFirstChildOfClass("Humanoid") if h then h.PlatformStand=false end end flyBtn.Text="FLY: OFF" flyBtn.TextColor3=RD end
-local function startFly() local ch=pl.Character if not ch then return end local hrp=ch:FindFirstChild("HumanoidRootPart") local h=ch:FindFirstChildOfClass("Humanoid") local an=h and h:FindFirstChildOfClass("Animator") if not hrp or not h then return end flying=true h.PlatformStand=true bv=Instance.new("BodyVelocity") bv.MaxForce=Vector3.new(1e5,1e5,1e5) bv.Velocity=Vector3.zero bv.Parent=hrp bg2=Instance.new("BodyGyro") bg2.MaxTorque=Vector3.new(1e5,1e5,1e5) bg2.CFrame=hrp.CFrame bg2.Parent=hrp local fid=flyAnimIn.Text if fid and fid~="" and an then flyTrack=getT(an,fid,Enum.AnimationPriority.Movement) if flyTrack then pcall(function() flyTrack:Play(0.1) end) end end flyBtn.Text="FLY: ON" flyBtn.TextColor3=ACC end
-flyBtn.MouseButton1Click:Connect(function() if flying then stopFly() else startFly() end end)
-R.RenderStepped:Connect(function() if not flying or not bv then return end local ch=pl.Character if not ch then return end local hrp=ch:FindFirstChild("HumanoidRootPart") local cam=workspace.CurrentCamera if not hrp or not cam then return end local spd=tonumber(flySpd.Text) or 50 local dir=Vector3.zero if U:IsKeyDown(Enum.KeyCode.W) then dir=dir+cam.CFrame.LookVector end if U:IsKeyDown(Enum.Key
+
+local resetStretch=mkBtn(stretchFrame,"RESET TO NORMAL",3)
+resetStretch.BackgroundColor3=BTN
+resetStretch.TextColor3=RD
+resetStretch.MouseButton1Click:Connect(function()
+    local ch=pl.Character
+    if not ch then return end
+    local hum=ch:FindFirstChildOfClass("Humanoid")
+    if not hum then return end
+    local desc=hum:GetAppliedDescription()
+    if desc then
+        desc.HeightScale=1
+        desc.WidthScale=1
+        hum:ApplyDescription(desc)
+    end
+end)
+
+-- Логика Fly
+local flying=false
+local bv=nil
+local bg2=nil
+local function stopFly()
+    flying=false
+    if bv then bv:Destroy() bv=nil end
+    if bg2 then bg2:Destroy() bg2=nil end
+    local ch=pl.Character
+    if ch then
+        local h=ch:FindFirstChildOfClass("Humanoid")
+        if h then h.PlatformStand=false end
+    end
+    flyBtn.Text="FLY: OFF"
+    flyBtn.TextColor3=RD
+end
+local function startFly()
+    local ch=pl.Character
+    if not ch then return end
+    local hrp=ch:FindFirstChild("HumanoidRootPart")
+    local h=ch:FindFirstChildOfClass("Humanoid")
+    if not hrp or not h then return end
+    flying=true
+    h.PlatformStand=true
+    bv=Instance.new("BodyVelocity")
+    bv.MaxForce=Vector3.new(1e5,1e5,1e5)
+    bv.Velocity=Vector3.zero
+    bv.Parent=hrp
+    bg2=Instance.new("BodyGyro")
+    bg2.MaxTorque=Vector3.new(1e5,1e5,1e5)
+    bg2.CFrame=hrp.CFrame
+    bg2.Parent=hrp
+    flyBtn.Text="FLY: ON"
+    flyBtn.TextColor3=ACC
+end
+flyBtn.MouseButton1Click:Connect(function()
+    if flying then stopFly() else startFly() end
+end)
+
+R.RenderStepped:Connect(function()
+    if not flying or not bv then return end
+    local ch=pl.Character
+    if not ch then return end
+    local hrp=ch:FindFirstChild("HumanoidRootPart")
+    local cam=workspace.CurrentCamera
+    if not hrp or not cam then return end
+    local spd=50
+    local dir=Vector3.zero
+    if U:IsKeyDown(Enum.KeyCode.W) then dir=dir+cam.CFrame.LookVector end
+    if U:IsKeyDown(Enum.KeyCode.S) then dir=dir-cam.CFrame.LookVector end
+    if U:IsKeyDown(Enum.KeyCode.A) then dir=dir-cam.CFrame.RightVector end
+    if U:IsKeyDown(Enum.KeyCode.D) then dir=dir+cam.CFrame.RightVector end
+    if U:IsKeyDown(Enum.KeyCode.Space) then dir=dir+Vector3.new(0,1,0) end
+    if U:IsKeyDown(Enum.KeyCode.LeftControl) then dir=dir-Vector3.new(0,1,0) end
+    bv.Velocity=dir.Magnitude>0 and (dir.Unit*spd) or Vector3.zero
+    bg2.CFrame=cam.CFrame
+end)
+
+-- Noclip
+local noclipOn=false
+noclipBtn.MouseButton1Click:Connect(function()
+    noclipOn=not noclipOn
+    noclipBtn.Text=noclipOn and "NOCLIP: ON" or "NOCLIP: OFF"
+    noclipBtn.TextColor3=noclipOn and ACC or RD
+end)
+R.Stepped:Connect(function()
+    if not noclipOn then return end
+    local ch=pl.Character
+    if not ch then return end
+    for _,p in ipairs(ch:GetDescendants()) do
+        if p:IsA("BasePart") then p.CanCollide=false end
+    end
+end)
+
+-- Inf Jump
+local infJumpOn=false
+local infJumpConn
+infJumpBtn.MouseButton1Click:Connect(function()
+    infJumpOn=not infJumpOn
+    if infJumpOn then
+        infJumpConn=U.JumpRequest:Connect(function()
+            local ch=pl.Character
+            local h=ch and ch:FindFirstChildOfClass("Humanoid")
+            if h then h:ChangeState(Enum.HumanoidStateType.Jumping) end
+        end)
+    else
+        if infJumpConn then infJumpConn:Disconnect() infJumpConn=nil end
+    end
+    infJumpBtn.Text=infJumpOn and "INF JUMP: ON" or "INF JUMP: OFF"
+    infJumpBtn.TextColor3=infJumpOn and ACC or RD
+end)
+
+-- Speed
+local spdOn=false
+spdBtn.MouseButton1Click:Connect(function()
+    spdOn=not spdOn
+    local ch=pl.Character
+    local h=ch and ch:FindFirstChildOfClass("Humanoid")
+    if h then h.WalkSpeed=spdOn and 50 or 16 end
+    spdBtn.Text=spdOn and "SPEED: ON" or "SPEED: OFF"
+    spdBtn.TextColor3=spdOn and ACC or RD
+end)
+
+-- Jump
+local jmpOn=false
+local jmpConn
+jmpBtn.MouseButton1Click:Connect(function()
+    jmpOn=not jmpOn
+    if jmpOn then
+        jmpConn=U.JumpRequest:Connect(function()
+            local ch=pl.Character
+            local h=ch and ch:FindFirstChildOfClass("Humanoid")
+            if h then h.Jump=true end
+        end)
+    else
+        if jmpConn then jmpConn:Disconnect() jmpConn=nil end
+    end
+    jmpBtn.Text=jmpOn and "JUMP: ON" or "JUMP: OFF"
+    jmpBtn.TextColor3=jmpOn and ACC or RD
+end)
+
+-- Spin
+local spinOn=false
+spinBtn.MouseButton1Click:Connect(function()
+    spinOn=not spinOn
+    if spinOn then
+        task.spawn(function()
+            while spinOn do
+                local ch=pl.Character
+                local hrp=ch and ch:FindFirstChild("HumanoidRootPart")
+                if hrp then hrp.CFrame=hrp.CFrame*CFrame.Angles(0,math.rad(15),0) end
+                task.wait()
+            end
+        end)
+    end
+    spinBtn.Text=spinOn and "SPIN: ON" or "SPIN: OFF"
+    spinBtn.TextColor3=spinOn and ACC or RD
+end)
+
+-- Fling
+local flingOn=false
+local function doFling()
+    if not flingOn then return end
+    local ch=pl.Character
+    if not ch then return end
+    local hrp=ch:FindFirstChild("HumanoidRootPart")
+    if not hrp then return end
+    for _,p in ipairs(P:GetPlayers()) do
+        if p~=pl and p.Character then
+            local thrp=p.Character:FindFirstChild("HumanoidRootPart")
+            if thrp and (thrp.Position-hrp.Position).Magnitude<10 then
+                local h=p.Character:FindFirstChildOfClass("Humanoid")
+                if h then
+                    h:ChangeState(11)
+                    thrp.Velocity=Vector3.new(math.random(-200,200),math.random(100,300),math.random(-200,200))
+                end
+            end
+        end
+    end
+end
+flingBtn.MouseButton1Click:Connect(function()
+    flingOn=not flingOn
+    flingBtn.Text=flingOn and "FLING: ON" or "FLING: OFF"
+    flingBtn.TextColor3=flingOn and ACC or RD
+    if flingOn then
+        task.spawn(function()
+            while flingOn do
+                doFling()
+                task.wait(0.5)
+            end
+        end)
+    end
+end)
+
+-- ESP
+local es=false
+local ks=false
+local hls={}
+local function clearESP()
+    for _,h in pairs(hls) do
+        if h and h.Parent then h:Destroy() end
+    end
+    hls={}
+end
+local function applyESP()
+    clearESP()
+    if not es and not ks then return end
+    for _,p in ipairs(P:GetPlayers()) do
+        if p~=pl and p.Character then
+            local ik=false
+            if ks then
+                local r=p.Character:FindFirstChild("Role") or p:FindFirstChild("Role")
+                if r and (r.Value=="Murderer" or r.Value=="Killer") then ik=true end
+            end
+            if es or ik then
+                local h=Instance.new("Highlight")
+                h.Adornee=p.Character
+                h.Parent=p.Character
+                if ik then
+                    h.FillColor=Color3.fromRGB(255,0,0)
+                    h.OutlineColor=Color3.fromRGB(255,100,100)
+                else
+                    h.FillColor=ACC
+                    h.OutlineColor=PN
+                end
+                h.FillTransparency=0.4
+                h.OutlineTransparency=0
+                table.insert(hls,h)
+            end
+        end
+    end
+end
+espOn.MouseButton1Click:Connect(function()
+    es=not es
+    espOn.Text=es and "ESP: ON" or "ESP: OFF"
+    espOn.TextColor3=es and ACC or RD
+    applyESP()
+end)
+killerOn.MouseButton1Click:Connect(function()
+    ks=not ks
+    killerOn.Text=ks and "KILLER: ON" or "KILLER: OFF"
+    killerOn.TextColor3=ks and ACC or RD
+    applyESP()
+end)
+
+-- Переключение вкладок
+local function switch(i)
+   
